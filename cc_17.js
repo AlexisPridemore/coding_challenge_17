@@ -74,3 +74,23 @@ getDetails() {
     }
  }
 }   
+
+// Task 3 VIP Customer Class
+
+class VIPCustomer extends Customer {
+    constructor(name, email, vipLevel) {
+        super(name, email);
+        this.vipLevel = vipLevel;
+    }
+
+//Get Total spent method to add 10% bonus
+getTotalSpent() {
+    return super.getTotalSpent() * 1.1;
+}
+}    
+
+//Add VIP customer
+const vipCustomer = new VIPCustomer("Kobe Bryant", "BlackMamba@gmail.com", "Gold");
+//Add purchases
+vipCustomer.addPurchase(1000);
+vipCustomer.addPurchase(500);
