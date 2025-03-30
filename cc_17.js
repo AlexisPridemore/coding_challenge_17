@@ -37,10 +37,17 @@ customer3.addPurchase(500);
 customer3.addPurchase(900);
 customer3.addPurchase(200);
 
-//Log Customer Details
-console.log(customer1.getDetails())
-console.log(customer2.getDetails())
-console.log(customer3.getDetails())
+//Log Customers
+console.log("New Customers Created:");
+console.log(customer1.name, "-", customer1.email);
+console.log(customer2.name, "-", customer2.email);
+console.log(customer3.name, "-", customer3.email);
+
+// Logging total spent
+console.log("Total spent by", customer1.name, ": $", customer1.getTotalSpent());
+console.log("Total spent by", customer2.name, ": $", customer2.getTotalSpent());
+console.log("Total spent by", customer3.name, ": $", customer3.getTotalSpent());
+console.log("Total spent by VIP customer", vipCustomer.name, "(with bonus): $", vipCustomer.getTotalSpent());
 
 // Task 2 SalesRep Class
 
