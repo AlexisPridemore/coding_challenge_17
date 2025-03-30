@@ -7,11 +7,6 @@ class Customer {
         this.purchaseHistory = [];
     }
 
-    //Get Customer Details
-getDetails() {
-    return `Customer Name: ${this.name}, Customer Email: ${this.email}, Total Spent: $${this.getTotalSpent()} `
-}
-
 // Add purchase amounts to Purchase History
 addPurchase(amount) {
     this.purchaseHistory.push(amount);
@@ -36,10 +31,10 @@ customer1.addPurchase(500);
 customer1.addPurchase(50);
 
 customer2.addPurchase(300);
-customer2.addPurchase(150);
+customer2.addPurchase(650);
 
 customer3.addPurchase(500);
-customer3.addPurchase(400);
+customer3.addPurchase(900);
 customer3.addPurchase(200);
 
 //Log Customer Details
@@ -74,6 +69,16 @@ getDetails() {
     }
  }
 }   
+// Creating a SalesRep
+const salesRep = new SalesRep("Fernando");
+
+// Adding clients to the sales rep
+salesRep.addClient(customer1);
+salesRep.addClient(customer2);
+salesRep.addClient(customer3);
+salesRep.addClient(vipCustomer);
+
+console.log("SalesRep Clients:", salesRep.clients.map(client => client.name));
 
 // Task 3 VIP Customer Class
 
@@ -94,3 +99,22 @@ const vipCustomer = new VIPCustomer("Kobe Bryant", "BlackMamba@gmail.com", "Gold
 //Add purchases
 vipCustomer.addPurchase(1000);
 vipCustomer.addPurchase(500);
+
+console.log(vipCustomer.name, "-", vipCustomer.email, "(VIP Level:", vipCustomer.vipLevel + ")");
+
+// Task 4 Client Report System
+
+// Client Report System
+const allCustomers = [customer1, customer2, customer3, vipCustomer];
+
+// Calculate total revenue
+const totalRevenue = allCustomers.reduce((sum, customer) => sum + customer.getTotalSpent(), 0);
+console.log("Total Revenue: $", totalRevenue);
+
+// Find high-spending customers (spent over $500)
+const highSpenders = allCustomers.filter(customer => customer.getTotalSpent() > 500);
+console.log("High-Spending Customers:", highSpenders.map(customer => customer.name));
+
+// Create customer summary
+const customerSummary = allCustomers.map(customer => ({ name: customer.name, totalSpent: customer.getTotalSpent() }));
+console.log("Customer Summary:", customerSummary);
