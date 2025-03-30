@@ -47,7 +47,6 @@ console.log(customer3.name, "-", customer3.email);
 console.log("Total spent by", customer1.name, ": $", customer1.getTotalSpent());
 console.log("Total spent by", customer2.name, ": $", customer2.getTotalSpent());
 console.log("Total spent by", customer3.name, ": $", customer3.getTotalSpent());
-console.log("Total spent by VIP customer", vipCustomer.name, "(with bonus): $", vipCustomer.getTotalSpent());
 
 // Task 2 SalesRep Class
 
@@ -83,7 +82,6 @@ const salesRep = new SalesRep("Fernando");
 salesRep.addClient(customer1);
 salesRep.addClient(customer2);
 salesRep.addClient(customer3);
-salesRep.addClient(vipCustomer);
 
 console.log("SalesRep Clients:", salesRep.clients.map(client => client.name));
 
@@ -102,12 +100,16 @@ getTotalSpent() {
 }    
 
 //Add VIP customer
+console.log("New VIP Customer Created:");
 const vipCustomer = new VIPCustomer("Kobe Bryant", "BlackMamba@gmail.com", "Gold");
 //Add purchases
 vipCustomer.addPurchase(1000);
 vipCustomer.addPurchase(500);
 
+salesRep.addClient(vipCustomer);
+
 console.log(vipCustomer.name, "-", vipCustomer.email, "(VIP Level:", vipCustomer.vipLevel + ")");
+console.log("Total spent by VIP customer", vipCustomer.name, "(with bonus): $", vipCustomer.getTotalSpent());
 
 // Task 4 Client Report System
 
