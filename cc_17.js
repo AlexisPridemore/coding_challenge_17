@@ -47,6 +47,30 @@ console.log(customer1.getDetails())
 console.log(customer2.getDetails())
 console.log(customer3.getDetails())
 
+// Task 2 SalesRep Class
 
+class SalesRep {
+    constructor(name) {
+        this.name = name;
+        this.clients = [];
+    }
 
-
+// Function to get Sales Rep Details
+getDetails() {
+    const totalClientSpent = this.clients.reduce((total, client) => total + client.getTotalSpent(), 0);
+    return `Sales Rep Name: ${this.name}, Total Clients Spent: $${totalClientSpent}`;
+    }
+//Add Clients
+    addClient(customer) {
+        this.clients.push(customer);
+    }
+ // Method to get total spent by a client
+ getClientTotal(name) {
+    const client = this.clients.find(customer => customer.name === name);
+    if (client) {
+       return `${client.name} has spent $${client.getTotalSpent()}`; // If the client is found log this to console
+    } else {
+       return `Client not found.`; // If the client is not found log this message 
+    }
+ }
+}   
